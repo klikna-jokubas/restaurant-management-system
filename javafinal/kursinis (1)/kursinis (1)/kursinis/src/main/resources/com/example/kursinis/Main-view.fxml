@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kursinis.fxControllers.MainForm">
+
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Išeiti">
+                    <items>
+                        <MenuItem text="Išeiti" onAction="#onExit"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TabPane fx:id="mainTabPane">
+            <tabs>
+
+                <!-- 1 TABAS: UŽSAKYMAI -->
+                <Tab text="Užsakymai" closable="false">
+                    <BorderPane>
+
+                        <center>
+                            <VBox spacing="10">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+
+                                <!-- FILTRŲ JUOSTA -->
+                                <HBox spacing="10">
+                                    <Label text="Filtruoti:"/>
+
+                                    <TextField fx:id="txtFilterOrderName" promptText="Pavadinimas" prefWidth="150"/>
+                                    <TextField fx:id="txtFilterOrderBuyer" promptText="Pirkėjas" prefWidth="150"/>
+                                    <ComboBox fx:id="cmbFilterOrderStatus" promptText="Statusas" prefWidth="140"/>
+                                </HBox>
+
+                                <!-- UŽSAKYMŲ LENTELĖ -->
+                                <TableView fx:id="orderTable">
+                                    <columns>
+                                        <TableColumn fx:id="colOrderId" text="ID" prefWidth="60"/>
+                                        <TableColumn fx:id="colOrderName" text="Pavadinimas" prefWidth="150"/>
+                                        <TableColumn fx:id="colOrderPrice" text="Kaina" prefWidth="80"/>
+                                        <TableColumn fx:id="colOrderBuyer" text="Pirkėjas" prefWidth="130"/>
+                                        <TableColumn fx:id="colOrderRestaurant" text="Restoranas" prefWidth="150"/>
+                                        <TableColumn fx:id="colOrderDriver" text="Vairuotojas" prefWidth="150"/>
+                                        <TableColumn fx:id="colOrderStatus" text="Statusas" prefWidth="100"/>
+                                    </columns>
+                                </TableView>
+
+                            </VBox>
+                        </center>
+
+                        <bottom>
+                            <HBox spacing="8">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+                                <Button fx:id="btnAddOrder" text="Pridėti" onAction="#onAddOrder"/>
+                                <Button fx:id="btnEditOrder" text="Redaguoti" onAction="#onEditOrder"/>
+                                <Button fx:id="btnDeleteOrder" text="Pašalinti" onAction="#onDeleteOrder"/>
+                                <Button text="Chat" onAction="#onOpenChat"/>
+                            </HBox>
+                        </bottom>
+
+                    </BorderPane>
+                </Tab>
+
+                <!-- 2 TABAS: VARTOTOJAI -->
+                <Tab fx:id="tabUsers" text="Vartotojai" closable="false">
+                    <BorderPane>
+                        <top>
+                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                                <TextField fx:id="txtFilterUserLogin" promptText="Login"/>
+                                <TextField fx:id="txtFilterUserName" promptText="Vardas"/>
+                                <TextField fx:id="txtFilterUserSurname" promptText="Pavardė"/>
+                                <TextField fx:id="txtFilterUserPhone" promptText="Tel."/>
+                            </HBox>
+                        </top>
+                        <center>
+                            <TableView fx:id="userTable">
+                                <columns>
+                                    <TableColumn fx:id="colUserId" text="ID" prefWidth="60"/>
+                                    <TableColumn fx:id="colUserLogin" text="Login" prefWidth="120"/>
+                                    <TableColumn fx:id="colUserName" text="Vardas" prefWidth="120"/>
+                                    <TableColumn fx:id="colUserPhone" text="Tel." prefWidth="100"/>
+                                </columns>
+                            </TableView>
+                        </center>
+                        <bottom>
+                            <HBox spacing="8">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <Button text="Pridėti" onAction="#onAddUser"/>
+                                <Button text="Redaguoti" onAction="#onEditUser"/>
+                                <Button text="Pašalinti" onAction="#onDeleteUser"/>
+                            </HBox>
+                        </bottom>
+                    </BorderPane>
+                </Tab>
+
+                <!-- 3 TABAS: RESTORANAI -->
+                <Tab text="Restoranai" closable="false">
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                        <Label text="Restoranų sąrašas"/>
+
+                        <TableView fx:id="restaurantTable">
+                            <columns>
+                                <TableColumn fx:id="colRestName" text="Pavadinimas" prefWidth="150"/>
+                                <TableColumn fx:id="colRestAddress" text="Adresas" prefWidth="200"/>
+                                <TableColumn fx:id="colRestPhone" text="Tel." prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="8">
+                            <Button fx:id="btnAddRestaurant" text="Pridėti restoraną" onAction="#onAddRestaurant"/>
+                            <Button fx:id="btnEditRestaurant" text="Redaguoti" onAction="#onEditRestaurant"/>
+                            <Button fx:id="btnDeleteRestaurant" text="Ištrinti" onAction="#onDeleteRestaurant"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+                <!-- 4 TABAS: VAIRUOTOJAI -->
+                <Tab fx:id="tabDrivers" text="Vairuotojai" closable="false">
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                        <Label text="Vairuotojų sąrašas"/>
+
+                        <TableView fx:id="driverTable">
+                            <columns>
+                                <TableColumn fx:id="colDriverId" text="ID" prefWidth="60"/>
+                                <TableColumn fx:id="colDriverLogin" text="Login" prefWidth="120"/>
+                                <TableColumn fx:id="colDriverName" text="Vardas" prefWidth="120"/>
+                                <TableColumn fx:id="colDriverPhone" text="Tel." prefWidth="120"/>
+                                <TableColumn fx:id="colDriverVehicle" text="Transportas" prefWidth="120"/>
+                                <TableColumn fx:id="colDriverLicence" text="Pažymėjimas" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="8">
+                            <Button fx:id="btnAddDriver" text="Pridėti vairuotoją" onAction="#onAddDriver"/>
+                            <Button fx:id="btnEditDriver" text="Redaguoti" onAction="#onEditDriver"/>
+                            <Button fx:id="btnDeleteDriver" text="Ištrinti" onAction="#onDeleteDriver"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+                <!-- 5 TABAS: PATIEKALAI -->
+                <Tab text="Patiekalai" closable="false">
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                        <Label text="Patiekalų sąrašas"/>
+
+                        <TableView fx:id="cuisineTable">
+                            <columns>
+                                <TableColumn fx:id="colCuisineName" text="Pavadinimas" prefWidth="150"/>
+                                <TableColumn fx:id="colCuisinePrice" text="Kaina" prefWidth="80"/>
+                                <TableColumn fx:id="colCuisineRestaurant" text="Restoranas" prefWidth="150"/>
+                                <TableColumn fx:id="colCuisineSpicy" text="Aštrus" prefWidth="80"/>
+                                <TableColumn fx:id="colCuisineVegan" text="Veganiškas" prefWidth="100"/>
+                                <TableColumn fx:id="colCuisineDescription" text="Aprašymas" prefWidth="100"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="8">
+                            <Button fx:id="btnAddCuisine" text="Pridėti patiekalą" onAction="#onAddCuisine"/>
+                            <Button fx:id="btnEditCuisine" text="Redaguoti" onAction="#onEditCuisine"/>
+                            <Button fx:id="btnDeleteCuisine" text="Ištrinti" onAction="#onDeleteCuisine"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+                <!-- 6 TABAS: CHAT (Review) -->
+                <Tab text="Chat" closable="false">
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                        <Label text="Pokalbiai"/>
+
+                        <TableView fx:id="reviewTable">
+                            <columns>
+                                <TableColumn fx:id="colReviewId" text="ID" prefWidth="50"/>
+                                <TableColumn fx:id="colReviewFrom" text="Nuo" prefWidth="150"/>
+                                <TableColumn fx:id="colReviewTo" text="Kam" prefWidth="150"/>
+                                <TableColumn fx:id="colReviewRating" text="Įvertinimas" prefWidth="100"/>
+                                <TableColumn fx:id="colReviewDate" text="Data" prefWidth="100"/>
+                                <TableColumn fx:id="colReviewText" text="Tekstas" prefWidth="250"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="8">
+                            <Button fx:id="btnAddReview" text="Pridėti atsiliepimą" onAction="#onAddReview"/>
+                            <Button fx:id="btnEditReview" text="Redaguoti" onAction="#onEditReview"/>
+                            <Button fx:id="btnDeleteReview" text="Ištrinti" onAction="#onDeleteReview"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+                <!-- 7 TABAS: RATING -->
+                <Tab fx:id="tabRatings" text="Atsiliepimai" closable="false">
+                    <VBox spacing="10">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+                        <Label text="Reitingai"/>
+
+                        <TableView fx:id="ratingTable">
+                            <columns>
+                                <TableColumn fx:id="colRatingId" text="ID" prefWidth="50"/>
+                                <TableColumn fx:id="colRatingComment" text="Komentaras" prefWidth="200"/>
+                                <TableColumn fx:id="colRatingDate" text="Data" prefWidth="120"/>
+                                <TableColumn fx:id="colRatingStars" text="Įvertinimas" prefWidth="80"/>
+                                <TableColumn fx:id="colRatingAuthor" text="Autorius" prefWidth="100"/>
+                                <TableColumn fx:id="colRatingDriver" text="Driver ID" prefWidth="100"/>
+                                <TableColumn fx:id="colRatingRestaurant" text="Restaurant ID" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+
+                        <HBox spacing="8">
+                            <Button fx:id="btnDeleteRating" text="Ištrinti" onAction="#onDeleteRating"/>
+                        </HBox>
+
+                    </VBox>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+</BorderPane>

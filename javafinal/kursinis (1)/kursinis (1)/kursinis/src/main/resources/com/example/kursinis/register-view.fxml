@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.RegisterForm"
+      spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Registracija" style="-fx-font-size:18; -fx-font-weight:bold"/>
+
+    <HBox spacing="10">
+        <Label text="Vartotojo tipas:" prefWidth="130"/>
+        <ComboBox fx:id="cmbUserType" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Login:" prefWidth="130"/>
+        <TextField fx:id="txtLogin"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Slaptažodis:" prefWidth="130"/>
+        <PasswordField fx:id="txtPassword"/>
+    </HBox>
+
+    <HBox fx:id="rowName" spacing="10">
+        <Label fx:id="lblName" text="Vardas:" prefWidth="130"/>
+        <TextField fx:id="txtName"/>
+    </HBox>
+
+    <HBox fx:id="rowSurname" spacing="10">
+        <Label text="Pavardė:" prefWidth="130"/>
+        <TextField fx:id="txtSurname"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Tel. nr.:" prefWidth="130"/>
+        <TextField fx:id="txtPhone"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Adresas:" prefWidth="130"/>
+        <TextField fx:id="txtAddress"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <CheckBox fx:id="chkIsAdmin" text="Administratorius"/>
+    </HBox>
+
+    <TitledPane fx:id="driverPane" text="Vairuotojo duomenys" expanded="false">
+        <content>
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <HBox spacing="10">
+                    <Label text="Vairuotojo pažymėjimo nr.:" prefWidth="160"/>
+                    <TextField fx:id="txtLicence"/>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Label text="Gimimo data:" prefWidth="160"/>
+                    <DatePicker fx:id="dpBirthDate"/>
+                </HBox>
+
+                <HBox spacing="10">
+                    <Label text="Transportas:" prefWidth="160"/>
+                    <ComboBox fx:id="cmbVehicleType" prefWidth="180"/>
+                </HBox>
+            </VBox>
+        </content>
+    </TitledPane>
+
+    <HBox spacing="10">
+        <Button text="Registruoti" onAction="#onRegister" prefWidth="140"/>
+        <Button text="Atšaukti" onAction="#onCancel" prefWidth="120"/>
+    </HBox>
+
+    <Label fx:id="lblError" textFill="red"/>
+</VBox>

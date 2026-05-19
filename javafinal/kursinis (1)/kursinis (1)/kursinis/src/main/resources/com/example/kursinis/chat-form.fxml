@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.ChatForm"
+      spacing="10">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label fx:id="lblTitle" style="-fx-font-size:16;-fx-font-weight:bold"/>
+
+    <Label fx:id="lblOrderInfo"/>
+
+    <Label text="Žinutės:"/>
+    <TextArea fx:id="txtChat" prefRowCount="10"
+              promptText="Rašykite čia susirašinėjimą..."/>
+
+    <HBox spacing="10">
+        <Button text="Išsaugoti" onAction="#onSave"/>
+        <Button text="Atšaukti" onAction="#onCancel"/>
+    </HBox>
+
+    <Label fx:id="lblError" textFill="red"/>
+</VBox>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.ReviewForm"
+      spacing="10">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label text="Atsiliepimo forma" style="-fx-font-size:16;-fx-font-weight:bold"/>
+
+    <HBox spacing="10">
+        <Label text="Kam rašomas:" prefWidth="120"/>
+        <ComboBox fx:id="cmbTargetUser" prefWidth="220"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Įvertinimas (1-5):" prefWidth="120"/>
+        <Spinner fx:id="spRating" prefWidth="80"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Tekstas:" prefWidth="120"/>
+        <TextArea fx:id="txtText" prefRowCount="4"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="Išsaugoti" onAction="#onSave"/>
+        <Button text="Atšaukti" onAction="#onCancel"/>
+    </HBox>
+
+    <Label fx:id="lblError" textFill="red"/>
+
+</VBox>

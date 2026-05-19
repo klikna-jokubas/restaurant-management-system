@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">kursinis</string>
+    <string name="login_btn_lt">Junkis</string>
+    <string name="login_btn_en">Log in</string>
+    <string name="history_en">View All Orders</string>
+    <string name="update_btn_en">My info</string>
+    <string name="register_btn_en">Register</string>
+    <string name="register_client">Client</string>
+    <string name="register_driver">Driver</string>
+
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Name</string>
+    <string name="surname_hint">Surname</string>
+    <string name="phone_hint">Phone number</string>
+    <string name="address_hint">Address</string>
+
+    <string name="licence_hint">Driver licence</string>
+    <string name="bdate_hint">Birth date (YYYY-MM-DD)</string>
+    <string name="vehicle_type">Vehicle type</string>
+    <string name="my_orders">My Orders (Driver)</string>
+    <string name="delivered">Mark as delivered</string>
+    <string name="submit_review">Submit Review</string>
+    <string name="send_msg">Send</string>
+    <string name="rate_res">⭐ Rate Restaurant</string>
+    <string name="rate_dr">⭐ Rate Driver</string>
+
+
+</resources>

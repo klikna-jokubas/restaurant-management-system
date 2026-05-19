@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.CuisineForm"
+      spacing="10">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label text="Patiekalų forma" style="-fx-font-size:16; -fx-font-weight:bold"/>
+
+    <HBox spacing="10">
+        <Label text="Pavadinimas:" prefWidth="120"/>
+        <TextField fx:id="txtName"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Kaina:" prefWidth="120"/>
+        <TextField fx:id="txtPrice"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Restoranas:" prefWidth="120"/>
+        <ComboBox fx:id="cmbRestaurant" prefWidth="220"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Aštrus / Vegan:" prefWidth="120"/>
+        <CheckBox fx:id="chkSpicy" text="Aštrus"/>
+        <CheckBox fx:id="chkVegan" text="Vegan"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Aprašymas:" prefWidth="120"/>
+        <TextArea fx:id="txtDescription" prefRowCount="3"
+                  promptText="APRAŠYK!!!"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="Išsaugoti" onAction="#onSave"/>
+        <Button text="Atšaukti" onAction="#onCancel"/>
+    </HBox>
+
+    <Label fx:id="lblError" textFill="red"/>
+
+</VBox>

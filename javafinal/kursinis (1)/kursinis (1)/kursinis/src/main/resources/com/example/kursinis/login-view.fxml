@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.LoginForm"
+      spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Prisijungimas" style="-fx-font-size:18; -fx-font-weight:bold"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Login:" prefWidth="90"/>
+        <TextField fx:id="txtLogin" prefWidth="200"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Slaptažodis:" prefWidth="90"/>
+        <PasswordField fx:id="txtPassword" prefWidth="200"/>
+    </HBox>
+
+    <Button text="Prisijungti" onAction="#onLogin" prefWidth="140"/>
+
+    <Hyperlink text="Neturi paskyros? Registruokis" onAction="#onOpenRegister"/>
+
+    <Label fx:id="lblMessage" textFill="red"/>
+</VBox>

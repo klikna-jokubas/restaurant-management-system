@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kursinis.fxControllers.UserForm"
+      spacing="10">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label text="Vartotojo forma" style="-fx-font-size:16;-fx-font-weight:bold"/>
+
+    <HBox spacing="10">
+        <Label text="Login:" prefWidth="120"/>
+        <TextField fx:id="txtLogin" promptText="pvz. jonas123"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Slaptazodis:" prefWidth="120"/>
+        <PasswordField fx:id="txtPassword"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Vardas:" prefWidth="120"/>
+        <TextField fx:id="txtName"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Pavarde:" prefWidth="120"/>
+        <TextField fx:id="txtSurname"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Telefono nr.:" prefWidth="120"/>
+        <TextField fx:id="txtPhone"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Adresas:" prefWidth="120"/>
+        <TextField fx:id="txtAddress"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="Išsaugoti" onAction="#onSave"/>
+        <Button text="Atšaukti" onAction="#onCancel"/>
+    </HBox>
+
+    <Label fx:id="lblError" textFill="red"/>
+</VBox>
